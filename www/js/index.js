@@ -27,3 +27,14 @@ function onDeviceReady() {
     console.log('Running cordova-' + cordova.platformId + '@' + cordova.version);
     document.getElementById('deviceready').classList.add('ready');
 }
+
+$(document).on("mobileinit", function() {
+    $.mobile.defaultPageTransition = "none";
+    $.mobile.defaultDialogTransition = "none";
+});
+
+$("#addTask").click(function(){
+    var nouElement = "(<li>Nou element. :)<br /></li>)";
+    $("ul.li-listview").append("nouElement");
+    $("ul.li-listview").listview("refresh");
+});

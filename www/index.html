@@ -28,34 +28,32 @@
         <link rel="stylesheet" href="css/index.css">
 		<link rel="stylesheet" type="text/css" href="js/jquery-1.5.0.mobile.min.css">
 		<style>
-		.ui-header .ui-title {
-			overflow: visible !important;
-		}
+			.ui-header .ui-title { overflow: visible !important; }
 
-		#cjp-accordion1 .app {
-			left: 5px !important;
-			margin: 5px !important;
-			position: relative !important;
-		}
+			#cjp-accordion1 .app {
+				left: 5px !important;
+				margin: 5px !important;
+				position: relative !important;
+			}
 		</style>
 
-        <title>1.1</title>
+        <title>Tasklist</title>
     </head>
     <body>
 		<div data-role="page" id="homePage">
 			<div data-role="header">
-				<button onclick="addTask()" id="addTask">Add task</button>
-				<h1>EXERCICI 1.1</h1>
+				<button onclick="addTask()" id="addTask"><a href="dialog.html" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="slidedown">Miau</a></button>
+				<h1>COSAS QUE HACER</h1>
 			</div>
 
 			<ul data-role="listview">
-				<li><a href="#Home">Home</a></li>
-				<li><a href="#page2">Home 2</a></li>
-				<li><a href="#Home 3">Home 3</a></li>
+				<li><a href="#Home">Evadir impuestos</a></li>
+				<li><a href="#page2">Atracar un banco</a></li>
+				<li><a href="#Home 3">Acariciar gatitos</a></li>
 			</ul>
 			
 			<div data-role="footer" data-position="fixed">
-				<h1>EXERCICI 1.1</h1>
+				<h1>COSAS QUE HACER</h1>
 			</div>
 		</div>
 
@@ -119,20 +117,8 @@
 		<!-- /Home 3 -->
 
 		<script src="cordova.js"></script>
+		<script src="js/index.js"></script>
 		<script type="text/javascript" src="js/jquery-1.11.1.min.js" id="cordova-jquery"></script>
-		
-		<script type="text/javascript" id="jqm-trans-disable">
-			$(document).on("mobileinit", function() {
-					$.mobile.defaultPageTransition = "none";
-					$.mobile.defaultDialogTransition = "none";
-			});
-
-			$("#addTask").click(function(){
-				var nouElement = "(<li>Nou element. :)<br /></li>)";
-				$("ul").append("nouElement");
-			});
-		</script>
-		
 		<script type="text/javascript" src="js/jquery-1.5.0.mobile.min.js"></script><script src="js/index.js"></script>
 	</body>
 </html>
