@@ -33,8 +33,12 @@ $(document).on("mobileinit", function() {
     $.mobile.defaultDialogTransition = "none";
 });
 
-$("#addTask").click(function(){
-    var nouElement = "(<li>Nou element. :)<br /></li>)";
-    $("ul.li-listview").append("nouElement");
-    $("ul.li-listview").listview("refresh");
+$(document).on("click", ".edit-button", function() {
+    var taskText = $(this).closest("li").find(".task-text");
+    taskText.attr("contenteditable", "true").focus();
+});
+
+$(document).on("click", ".delete-button", function() {
+    $(this).closest("li").remove();
+    $("#taskList").listview("refresh");
 });

@@ -42,14 +42,32 @@
     <body>
 		<div data-role="page" id="homePage">
 			<div data-role="header">
-				<button onclick="addTask()" id="addTask"><a href="dialog.html" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="slidedown">Miau</a></button>
+				<button onclick="addTask()" id="addTask"><a href="dialog.html" role="button" class="ui-shadow ui-btn ui-corner-all ui-btn-inline" data-transition="slidedown">Agregar</a></button>
 				<h1>COSAS QUE HACER</h1>
 			</div>
-
-			<ul data-role="listview">
-				<li><a href="#Home">Evadir impuestos</a></li>
-				<li><a href="#page2">Atracar un banco</a></li>
-				<li><a href="#Home 3">Acariciar gatitos</a></li>
+			
+			<ul data-role="listview" id="taskList">
+				<li>
+					<a href="#">
+						<span class="task-text" contenteditable="true">Evadir impuestos</span>
+						<button class="edit-button">Editar</button>
+						<button class="delete-button">Borrar</button>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="task-text" contenteditable="true">Atracar un banco</span>
+						<button class="edit-button">Editar</button>
+						<button class="delete-button">Borrar</button>
+					</a>
+				</li>
+				<li>
+					<a href="#">
+						<span class="task-text" contenteditable="true">Acariciar gatitos</span>
+						<button class="edit-button">Editar</button>
+						<button class="delete-button">Borrar</button>
+					</a>
+				</li>
 			</ul>
 			
 			<div data-role="footer" data-position="fixed">
