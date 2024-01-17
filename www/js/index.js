@@ -1,20 +1,12 @@
-/* Licensed to the Apache Software Foundation (ASF) under one
-or more contributor license agreements.  See the NOTICE file
-distributed with this work for additional information
-regarding copyright ownership.  The ASF licenses this file
-to you under the Apache License, Version 2.0 (the
-"License"); you may not use this file except in compliance
-with the License.  You may obtain a copy of the License at
-http://www.apache.org/licenses/LICENSE-2.0
-Unless required by applicable law or agreed to in writing,
-software distributed under the License is distributed on an
-"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, either express or implied.  See the License for the
-specific language governing permissions and limitations
-under the License. */
+/* Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements.  See the NOTICE file distributed with this work for
+additional information regarding copyright ownership.  The ASF licenses this file to you under the Apache License, Version 2.0 (the "License"); you may
+not use this file except in compliance with the License.  You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless
+required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.  See the License for the specific language governing permissions and limitations under the License. */
 
 // Wait for the deviceready event before using any of Cordova's device APIs.
 // See https://cordova.apache.org/docs/en/latest/cordova/events/events.html#deviceready
+
 document.addEventListener('deviceready', onDeviceReady, false);
 
 function onDeviceReady() {
@@ -28,16 +20,24 @@ $(document).on("mobileinit", function() {
 });
 
 // —————————————————————————————————————————————————————————————————————————————————————————
+
 // AFEGIR TASCA:
-// Crea un nuevo elemento de lista con contenido editable y botones de editar y borrar.
-// Agrega la nueva tarea a la lista. Actualiza la lista para que se apliquen los estilos.
-// Llama a la función saveTasks para almacenar la nueva tarea.
+// Crea un element de llista nou amb contingut editable i botons d'editar i esborrar.
+// Afegeix la nova tasca a la llista. Actualitza la llista perquè s'apliquin els estils.
+// Truca a la funció saveTasks per emmagatzemar la nova tasca.
+
 function addTask() {
     var newTask = $('<li><a href="#page1"><span class="task-text" contenteditable="true">Nueva tarea</span><button class="edit-button task-action-button">Editar</button><button class="delete-button task-action-button">Borrar</button></a></li>');
     $("#taskList").append(newTask);
+
+    // Agregar las clases a los botones creados dinámicamente
+    newTask.find('.edit-button').addClass('task-action-button');
+    newTask.find('.delete-button').addClass('task-action-button');
+
     $("#taskList").listview("refresh");
     saveTasks();
 }
+
 
 // —————————————————————————————————————————————————————————————————————————————————————————
 
@@ -51,6 +51,7 @@ function addTask() {
 // l'edició. Captura el nou text després de l'edició. Verifica si el text ha canviat durant
 // l'edició. Si hi ha canvis, actualitza i desa les tasques. Elimina el controlador
 // d'esdeveniments "blur" després de l'edició.
+
 $(document).on("click", ".edit-button", function() {
     var taskText = $(this).closest("li").find(".task-text");
     var originalText = taskText.text();
@@ -65,6 +66,7 @@ $(document).on("click", ".edit-button", function() {
 // S'activa quan un usuari fa clic en un botó de supressió associat a una tasca dins d'una
 // llista. La funció troba l'element de la llista més proper i el suprimeix, seguit d'un
 // desament de les tasques actualitzades.
+
 $(document).on("click", ".delete-button", function() {
     var listItem = $(this).closest("li");
     listItem.remove();
@@ -79,6 +81,7 @@ $(document).on("click", ".delete-button", function() {
 // text de la tasca corresponent i, depenent de l'acció, mostra un missatge de registre a
 // la consola o elimina visualment la tasca de la llista, seguit de l'actualització de les
 //tasques desades.
+
 $(document).on("click", ".task-action-button", function(e) {
     e.preventDefault();
     var actionType = $(this).hasClass("edit-button") ? "Editar" : "Borrar";
@@ -99,6 +102,7 @@ $(document).on("click", ".task-action-button", function(e) {
 // storage. La funció loadTasks carrega les tasques emmagatzemades, les converteix en
 // objectes i les afegeix a la llista amb els elements HTML corresponents. Finalment, es
 // crida a loadTasks per carregar les tasques existents al carregar la pàgina.
+
 function saveTasks() {
     var tasksToSave = [];
     $("#taskList .task-text").each(function() { tasksToSave.push($(this).text()); });
